@@ -7,6 +7,6 @@ const PostSchema=mongoose.Schema({
     description:{type:String,require:true},
     likes:Number,
     date:String
-})
+},{timestamps:true});
 
 module.exports={IPost:mongoose.model("InstaPost",PostSchema)};

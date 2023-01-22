@@ -38,7 +38,6 @@ app.post("/api", (req, res) => {
   const newdate = finalDate[2] + " " + finalDate[1] + " " + finalDate[3];
   const { username, address, description } = req.body;
   const { image_file } = req.files;
-  
   const filearray=image_file.name.split(".");
   const filextension=filearray[filearray.length-1];
   const uniquekey=uniquekeyGenerate();
@@ -74,7 +73,7 @@ app.post("/api", (req, res) => {
 });
 
 app.get("/all", async (req, res) => {
-  res.json({ result: await IPost.find() });
+  res.json({ result: await IPost.find().sort({createdAt:-1})});
 });
 
 app.get("/images/:fileName", async (req, res) => {
