@@ -28,6 +28,9 @@ app.listen(port, () => {
   console.log(`App is listening on ${port}`);
 });
 
+app.get('/',(req,res)=>{
+  res.send("<h1>Welcome to page</h1>");
+})
 app.post("/api", (req, res) => {
   const date = new Date();
   let finalDate = date + "";
